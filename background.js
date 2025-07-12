@@ -22,7 +22,7 @@ class InspectionService {
             }
         });
 
-        // 监听扩展图标点击事件，直接打开管理界面
+        // 监听扩展图标点击事件，打开管理界面
         chrome.action.onClicked.addListener(() => {
             chrome.tabs.create({
                 url: chrome.runtime.getURL('inspection-panel.html')

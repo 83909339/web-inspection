@@ -154,22 +154,28 @@ class InspectionPanel {
         
         // 使用事件委托处理动态按钮
         this.apiList.addEventListener('click', (e) => {
-            if (e.target.classList.contains('edit-btn')) {
+            if (e.target.tagName === 'BUTTON') {
+                const action = e.target.dataset.action;
                 const id = e.target.dataset.id;
-                this.editApi(id);
-            } else if (e.target.classList.contains('delete-btn')) {
-                const id = e.target.dataset.id;
-                this.deleteApi(id);
+                
+                if (action === 'edit') {
+                    this.editApi(id);
+                } else if (action === 'delete') {
+                    this.deleteApi(id);
+                }
             }
         });
         
         this.pageList.addEventListener('click', (e) => {
-            if (e.target.classList.contains('edit-btn')) {
+            if (e.target.tagName === 'BUTTON') {
+                const action = e.target.dataset.action;
                 const id = e.target.dataset.id;
-                this.editPage(id);
-            } else if (e.target.classList.contains('delete-btn')) {
-                const id = e.target.dataset.id;
-                this.deletePage(id);
+                
+                if (action === 'edit') {
+                    this.editPage(id);
+                } else if (action === 'delete') {
+                    this.deletePage(id);
+                }
             }
         });
     }

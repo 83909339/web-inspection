@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web系统巡检助手 - 管理面板</title>
+    <link rel="stylesheet" href="inspection-panel.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <div class="header">
+            <h1>Web系统巡检助手</h1>
+            <div class="status-indicator">
+                <span id="statusDot" class="status-dot"></span>
+                <span id="statusText">未知状态</span>
+            </div>
+        </div>
+
+        <!-- 操作按钮区域 -->
+        <div class="actions">
+            <button id="startInspectionBtn" class="btn btn-success">开始巡检</button>
+            <button id="stopInspectionBtn" class="btn btn-danger" disabled>停止巡检</button>
+            <button id="clearResultsBtn" class="btn btn-warning">清除结果</button>
+            <button id="diagnosticBtn" class="btn btn-info">诊断</button>
+        </div>
+
+        <!-- 配置区域 -->
+        <div class="config-section">
+            <h2>接口配置</h2>
+            <div class="config-header">
+                <button id="addApiBtn" class="btn btn-primary">添加接口</button>
+            </div>
+            <div id="apiList" class="config-list"></div>
+        </div>
+
+        <div class="config-section">
+            <h2>页面配置</h2>
+            <div class="config-header">
+                <button id="addPageBtn" class="btn btn-primary">添加页面</button>
+            </div>
+            <div id="pageList" class="config-list"></div>
+        </div>
+
+        <!-- 结果区域 -->
+        <div class="results-section">
+            <div class="results-header">
+                <h2>巡检结果</h2>
+                <button id="exportBtn" class="btn btn-secondary">导出报告</button>
+            </div>
+            <div class="results-stats">
+                <div class="stat-item">
+                    <div class="stat-label">总计</div>
+                    <div id="totalCount" class="stat-value">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">成功</div>
+                    <div id="successCount" class="stat-value success">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">失败</div>
+                    <div id="errorCount" class="stat-value error">0</div>
+                </div>
+            </div>
+            <div id="resultsList" class="results-list"></div>
+        </div>
+
+        <!-- 配置模态框 -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle">配置</h3>
+                    <span class="close" id="closeModal">&times;</span>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- 动态内容 -->
+                </div>
+                <div class="modal-footer">
+                    <button id="cancelBtn" class="btn btn-secondary">取消</button>
+                    <button id="saveBtn" class="btn btn-primary">保存</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 导出模态框 -->
+        <div id="exportModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>导出巡检报告</h3>
+                    <span class="close" id="closeExportModal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="export-options">
+                        <div class="option-group">
+                            <label>
+                                <input type="checkbox" id="includeScreenshots" checked>
+                                包含截图（如果有）
+                            </label>
+                        </div>
+                        <div class="option-group">
+                            <label>
+                                <input type="checkbox" id="includeDetails" checked>
+                                包含详细错误信息
+                            </label>
+                        </div>
+                        <div class="option-group">
+                            <label>
+                                <input type="checkbox" id="includeConfig" checked>
+                                包含配置信息
+                            </label>
+                        </div>
+                    </div>
+                    <div class="export-preview">
+                        <h4>报告预览</h4>
+                        <div id="reportPreview" class="report-preview"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="cancelExportBtn" class="btn btn-secondary">取消</button>
+                    <button id="copyReportBtn" class="btn btn-info">复制报告</button>
+                    <button id="downloadReportBtn" class="btn btn-primary">下载报告</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 报告复制成功提示 -->
+        <div id="copySuccess" class="copy-success">
+            报告已复制到剪贴板！
+        </div>
+    </div>
+
+    <script src="inspection-panel.js"></script>
+</body>
+</html>

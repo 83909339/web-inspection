@@ -5,7 +5,7 @@
 ## 🚀 功能特性
 
 ### 核心功能
-- **🔍 接口巡检**：自动调用预设接口，支持GET/POST等多种请求方法
+- **🔍 接口巡检**：自动调用预设接口，支持GET/POST/PUT/DELETE等多种请求方法
 - **📱 页面巡检**：自动访问页面，检查可访问性和错误
 - **⚡ 智能告警**：支持自定义JavaScript告警规则
 - **⏰ 定时巡检**：支持30分钟至4小时的定时巡检
@@ -29,11 +29,16 @@
 
 1. **下载插件**
    ```bash
-   git clone https://github.com/your-username/web-inspection-tool.git
-   cd web-inspection-tool
+   git clone https://github.com/83909339/web-inspection.git
+   cd web-inspection
    ```
 
-2. **安装到浏览器**
+2. **准备图标文件**
+   - 双击打开 `icon-generator.html` 文件
+   - 在浏览器中生成图标文件
+   - 或手动准备图标文件到 `icons/` 目录
+
+3. **安装到浏览器**
    - 打开Chrome浏览器
    - 访问 `chrome://extensions/`
    - 启用右上角的"开发者模式"
@@ -41,7 +46,7 @@
    - 选择项目文件夹
    - 点击"选择文件夹"
 
-3. **验证安装**
+4. **验证安装**
    - 浏览器右上角应出现插件图标
    - 点击图标，弹出插件界面表示安装成功
 
@@ -103,7 +108,7 @@ response.result && response.result.status === 'error'
 ## 🗂️ 项目结构
 
 ```
-web-inspection-tool/
+web-inspection/
 ├── manifest.json              # 插件清单文件
 ├── background.js             # 后台服务脚本
 ├── content-script.js         # 内容脚本
@@ -111,10 +116,19 @@ web-inspection-tool/
 │   ├── popup.html           # 弹窗HTML
 │   ├── popup.css            # 弹窗样式
 │   └── popup.js             # 弹窗逻辑
+├── inspection-panel.html     # 管理面板HTML
+├── inspection-panel.css      # 管理面板样式
+├── inspection-panel.js       # 管理面板逻辑
+├── icon-generator.html       # 图标生成工具
 ├── icons/                   # 图标文件
+│   ├── icon16.png          # 16x16图标
+│   ├── icon48.png          # 48x48图标
+│   ├── icon128.png         # 128x128图标
 │   └── README.md           # 图标说明
 ├── 用户手册.md              # 详细用户手册
-├── 测试用例.md              # 测试用例文档
+├── 安装说明.md              # 安装指南
+├── 调试指南.md              # 调试指南
+├── 图标生成指南.md          # 图标生成指南
 └── README.md               # 项目说明
 ```
 
@@ -150,26 +164,22 @@ web-inspection-tool/
 
 ## 🧪 测试
 
-项目包含完整的测试用例，覆盖以下测试场景：
+项目包含完整的测试指南，覆盖以下测试场景：
 
 - **功能测试**：接口巡检、页面巡检、报告生成
 - **兼容性测试**：Chrome/Edge、Windows/macOS/Linux
 - **性能测试**：大量配置、长时间运行
 - **异常测试**：网络异常、超时、权限错误
 
-运行测试：
-```bash
-# 查看测试用例
-cat 测试用例.md
-
-# 按照测试用例手动执行测试
-```
+查看测试指南：
+- [调试指南](./调试指南.md) - 问题诊断和解决方案
 
 ## 📚 文档
 
 - [用户手册](./用户手册.md) - 详细的使用说明
-- [测试用例](./测试用例.md) - 完整的测试用例
-- [API文档](./docs/api.md) - 开发者API文档
+- [安装说明](./安装说明.md) - 完整的安装指南
+- [调试指南](./调试指南.md) - 问题诊断和解决方案
+- [图标生成指南](./图标生成指南.md) - 图标制作说明
 
 ## 🤝 贡献指南
 
@@ -196,6 +206,8 @@ cat 测试用例.md
 - ✨ 提供定时巡检功能
 - ✨ 实现巡检报告生成
 - ✨ 支持页面截图功能
+- ✨ 提供图标生成工具
+- ✨ 支持管理面板和弹窗界面
 
 ## 🗺️ 路线图
 
@@ -215,9 +227,9 @@ cat 测试用例.md
 
 如果您遇到问题或有改进建议，请通过以下方式联系：
 
-- **Bug反馈**：[GitHub Issues](https://github.com/your-username/web-inspection-tool/issues)
-- **功能建议**：[GitHub Discussions](https://github.com/your-username/web-inspection-tool/discussions)
-- **安全问题**：security@yourcompany.com
+- **Bug反馈**：[GitHub Issues](https://github.com/83909339/web-inspection/issues)
+- **功能建议**：[GitHub Discussions](https://github.com/83909339/web-inspection/discussions)
+- **安全问题**：请通过Issues私密反馈
 
 ## 📄 许可证
 
@@ -231,6 +243,6 @@ cat 测试用例.md
 
 **⭐ 如果这个项目对您有帮助，请给我们一个Star！**
 
-[![GitHub stars](https://img.shields.io/github/stars/your-username/web-inspection-tool.svg?style=social&label=Star)](https://github.com/your-username/web-inspection-tool)
-[![GitHub forks](https://img.shields.io/github/forks/your-username/web-inspection-tool.svg?style=social&label=Fork)](https://github.com/your-username/web-inspection-tool)
-[![GitHub watchers](https://img.shields.io/github/watchers/your-username/web-inspection-tool.svg?style=social&label=Watch)](https://github.com/your-username/web-inspection-tool) 
+[![GitHub stars](https://img.shields.io/github/stars/83909339/web-inspection.svg?style=social&label=Star)](https://github.com/83909339/web-inspection)
+[![GitHub forks](https://img.shields.io/github/forks/83909339/web-inspection.svg?style=social&label=Fork)](https://github.com/83909339/web-inspection)
+[![GitHub watchers](https://img.shields.io/github/watchers/83909339/web-inspection.svg?style=social&label=Watch)](https://github.com/83909339/web-inspection) 
